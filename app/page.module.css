@@ -1,167 +1,243 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
+/* Main wrapper */
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
+/* Left side */
+.leftBox {
+  flex: 0 0 60%;
+  padding: 0 40px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
+/* Right side */
+.rightBox {
+  flex: 0 0 40%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+/* Navbar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  /* gap after nav */
+}
+
+.navRight p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   margin: 0;
   font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+  color: #7c7c7c;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+.navRight p a {
+  color: #2baab1;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+/* Form box */
+.formBox {
+  width: 439px;
+  height: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  margin: 40px 70px;
 }
 
-.ctas {
+.heading {
+  font-size: 24px;
+  color: #000;
+}
+
+.subHeading {
+  color: #7c7c7c;
+  margin: 0;
+}
+
+.googleLogo {
+  cursor: pointer;
+}
+
+.or {
+  text-align: left;
+  margin: 0;
+}
+
+/* Form fields */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.row {
   display: flex;
   gap: 16px;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.field input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Password field with eye icon */
+.passwordField {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding-right: 8px;
+}
+
+.passwordField input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  outline: none;
+}
+
+/* Checkbox group */
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.agreeText {
+  margin: 0;
+  color: #000;
+  font-size: 14px;
+}
+
+.checkboxRow {
+  display: flex;
+  gap: 16px; 
+}
+
+
+/* Submit button */
+.submitBtn {
+  width: 185px;
   height: 48px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  background: #2baab1;
+  color: #fff;
+  border: none;
+  padding: 12px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
+/* ================== Responsive Adjustments ================== */
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+/* Tablet: max-width 1024px */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column; 
+    height: auto;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .leftBox,
+  .rightBox {
+    flex: 1 1 100%;
+    padding: 20px;
   }
 
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+  .formBox {
+    width: 100%;
+    margin: 20px 0; 
+    height: auto;
+  }
+
+  .row {
+    flex-direction: column; 
+    gap: 16px;
+  }
+
+  .checkboxRow {
+    flex-direction: row; 
+    gap: 12px;
+  }
+
+  .submitBtn {
+    width: 100%; 
   }
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
+/* Mobile: max-width 768px */
+@media (max-width: 768px) {
+  .container {
     flex-direction: column;
+    height: auto;
   }
 
-  .ctas a {
+  .leftBox {
+    padding: 16px; 
+  }
+
+  .rightBox {
+    display: none;
+  }
+
+  .formBox {
+    width: 100%;
+    margin: 16px 0;
+    padding: 16px;
+    height: auto; 
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .heading {
+    font-size: 20px; 
+  }
+
+  .subHeading {
     font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
   }
 
-  a.secondary {
-    min-width: auto;
+  .checkboxRow {
+    flex-direction: column; 
+    gap: 8px;
   }
 
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  .submitBtn {
+    width: 100%;
+    height: 48px;
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+  .googleLogo {
+    width: 36px;
+    height: 36px;
   }
 }
