@@ -279,7 +279,7 @@ export default function SignupPage() {
 
       {/* RIGHT BOX */}
       <div className={styles.rightBox}>
-        <Image src={signup} alt="Signup Illustration" fill style={{ objectFit: "cover" }} />
+        <Image src={signup} alt="Signup Illustration" />
       </div>
     </div>
   );

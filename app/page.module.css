@@ -17,10 +17,6 @@
 .rightBox {
   flex: 0 0 40%;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
 }
 
 /* Navbar */
@@ -51,12 +47,13 @@
 /* Form box */
 .formBox {
   width: 439px;
-  height: 760px;
+  /* height: 760px; */
   display: flex;
   flex-direction: column;
   gap: 24px;
   box-sizing: border-box;
   margin: 40px 70px;
+  padding-bottom: 60px;
 }
 
 .heading {
