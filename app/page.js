@@ -182,7 +182,7 @@ export default function SignupPage() {
             <div className={styles.field}>
               <label>Mobile</label>
               <input
-                type="tel"                     // numeric keypad on mobile
+                type="tel"
                 name="mobile"
                 placeholder="Enter your mobile number"
                 value={formData.mobile}
@@ -191,7 +191,7 @@ export default function SignupPage() {
                   const value = e.target.value.replace(/\D/, "");
                   setFormData({ ...formData, mobile: value });
                 }}
-                maxLength={10}                 // max 10 digits
+                maxLength={10}
               />
               {errors.mobile && (
                 <span style={{ color: "red" }}>{errors.mobile}</span>
@@ -215,7 +215,7 @@ export default function SignupPage() {
                   width={20}
                   height={20}
                   style={{ cursor: "pointer" }}
-                  onClick={() => setShowPassword(!showPassword)} // toggle
+                  onClick={() => setShowPassword(!showPassword)}
                 />
               </div>
 
@@ -227,9 +227,11 @@ export default function SignupPage() {
             <div className={styles.field}>
               <label>Date of Birth</label>
               <input
-                type="date"
+                type={formData.dob ? "date" : "text"}
                 name="dob"
                 value={formData.dob}
+                placeholder="Enter your date of birth"
+                onFocus={(e) => (e.target.type = "date")}
                 onChange={handleChange}
               />
               {errors.dob && <span style={{ color: "red" }}>{errors.dob}</span>}
