@@ -224,18 +224,19 @@ export default function SignupPage() {
               )}
             </div>
 
-            <div className={styles.field}>
-              <label>Date of Birth</label>
+            <div className={`${styles.field} ${styles.dobField}`}>
               <input
-                type={formData.dob ? "date" : "text"}
+                id="dob"
+                type="date"
                 name="dob"
                 value={formData.dob}
-                placeholder="Enter your date of birth"
-                onFocus={(e) => (e.target.type = "date")}
                 onChange={handleChange}
+                required
               />
-              {errors.dob && <span style={{ color: "red" }}>{errors.dob}</span>}
+              <label htmlFor="dob">Date of Birth</label>
+              {errors.dob && <span className={styles.error}>{errors.dob}</span>}
             </div>
+
 
             {/* Terms checkboxes */}
             <div className={styles.checkboxGroup}>
